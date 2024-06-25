@@ -67,6 +67,20 @@ function UserBookingsTable({bookings}:{bookings:BookingType[]}) {
             dataIndex:"bookingStatus",
             key:"bookingStaus",
         },
+        {
+            title: "Action",
+            dataIndex: "action",
+            key: "action",
+            render: (text: string, record: BookingType) =>
+              record.bookingStatus === "Booked" && (
+                <span
+                  className="text-red-500 cursor-pointer text-sm"
+                  onClick={() => onCancel(record)}
+                >
+                  Cancel
+                </span>
+              ),
+          },
     ]
   return (
     <div>
